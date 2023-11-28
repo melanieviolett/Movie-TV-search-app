@@ -6,14 +6,16 @@ const FavoriteComponent = props.favoriteComponent;
     return (
         <>
             {props.movies.map((movie, index)=> (
-                // check what these classes are
-                <div className='image-container d-flex justify-content-start m-3'>
+                <div className='flex justify-start m-3'>
                     {/* // Poster comes from movie object, which can be visualized in Postman */}
-                    <img src={movie.Poster} alt="Movie/TV poster"></img>
+                    <div className='flex flex-col items-center justify-end'>
+                        <img src={movie.Poster} alt="Movie/TV poster"></img>
                         <div onClick= {()=> props.handleFavsClick(movie)} 
-                        className='overlay d-flex align-items-center justify-content'>
+                        className='flex flex-col w-full items-center justify-end'>
                             <FavoriteComponent></FavoriteComponent>
                         </div>
+                    </div>
+
                 </div>
             ))}
         </>
